@@ -1,0 +1,32 @@
+    body {
+        background-image: url('./img/pokeball.jpg');
+        background-size: 105%;
+}
+
+    h1 {
+        text-align: center;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 75px;
+        color: rgb(240,240,0);
+
+        -webkit-text-stroke: 3px rgb(16,69,212);
+        text-shadow:
+            5px 5px 0 rgb(22, 61, 167),
+            -1px -1px 0 rgb(22, 61, 167),  
+            1px -1px 0 rgb(22, 61, 167),
+            -1px 1px 0 rgb(22, 61, 167),
+            1px 1px 0 rgb(22, 61, 167)
+}
+
+    h5 {
+            color: white;
+}
+
+    #mainTable{
+        /* background: url('img/Pokedex1.gif') no-repeat; */
+        background-color: white;
+        font-family: 'Lato', sans-serif;
+        padding: 5em;
+}
+
+    tr:hover {background-color: red;}

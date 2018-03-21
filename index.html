@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>POKéDEX</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="pokemon.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato|Luckiest+Guy" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h1>POKéDEX</h1>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" id="searchButton" onclick="searchPokemon()">Search!</button>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search for a pokemon by name or PokeDex number" id="searchPoke">
+                </div>
+            </div>
+            <br>
+            
+            <!-- <div class="pokedex" img src='.img/pokedex1.gif'> -->
+                <table class="table table-bordered" id="mainTable">
+                    <thead id="tHead">
+
+                    </thead>
+                    <tbody id="tBody">
+
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    <script src="pokemon.js"></script>
+    </body>
+</html>
