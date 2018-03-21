@@ -1,5 +1,9 @@
 const tHead = document.getElementById("tHead");
 const tBody = document.getElementById("tBody");
+const tHeadHeight = document.getElementById("tHeadHeight");
+const tBodyHeight = document.getElementById("tBodyHeight");
+const tHeadWeight = document.getElementById("tHeadWeight");
+const tBodyWeight = document.getElementById("tBodyWeight");
 const searchPoke = document.getElementById("searchPoke");
 const searchMoves = document.getElementById("searchMoves");
 
@@ -17,6 +21,8 @@ function searchPokemon() {
             return response.json()
         }).then(data => {
             fillTable(data)
+            fillTableHeight(data)
+            fillTableWeight(data)
             console.log(data)
         })
     }
@@ -30,7 +36,7 @@ function fillTable(pokeObj) {
         tBody.removeChild(tBody.firstChild);
     }
     tHead.innerHTML = '<tr><td><b>' + 'Pokemon:' + '</b></td><td><b>' + capFirstName(pokeObj.name) + '</b></td></tr>';
-    tBody.insertAdjacentHTML("beforeend", '<tr><td>' + "PokeDex ID #: " + '</td><td>' + pokeObj.id + '</td></tr>');
+    // tBody.insertAdjacentHTML("beforeend", '<tr><td>' + "PokeDex ID #: " + '</td><td>' + pokeObj.id + '</td></tr>');
     switch (pokeObj.types.length) {
         case 2: 
         tBody.insertAdjacentHTML("beforeend", '<tr><td>' + "Types:" + '</td><td>' + capFirstName(pokeObj.types[1].type.name) + '/' + capFirstName(pokeObj.types[0].type.name) + '</td><tr>');
@@ -41,9 +47,30 @@ function fillTable(pokeObj) {
         default:
         break;
     }
-    tBody.insertAdjacentHTML("beforeend", '<tr><td>' + "Weight:" + '</td><td>' + pokeObj.weight + ' lbs' + '</td></tr>');
-    tBody.insertAdjacentHTML("beforeend", '<tr><td>' + "Normal/Shiny:" + '</td><td>' + `<img src=${pokeObj.sprites.front_default} />` + `<img src=${pokeObj.sprites.back_default} />` + '______' + `<img src=${pokeObj.sprites.front_shiny} />` + `<img src=${pokeObj.sprites.back_shiny} />` +'</td></tr>');
-    tBody.insertAdjacentHTML("beforeend", '<tr><td>' + "Moves:" + '</td><td>' + capFirstName(pokeObj.moves[0].move.name) + '</td></tr>');
+    // tBody.insertAdjacentHTML("beforeend", '<tr><td>' + "Weight:" + '</td><td>' + pokeObj.weight + ' lbs' + '</td></tr>');
+    tBody.insertAdjacentHTML("beforeend", '<tr><td>' + "Sprite:" + '</td><td>' + `<img src=${pokeObj.sprites.front_default} />` +'</td></tr>');
+}
+
+function fillTableHeight(pokeObj) {
+    while (tHeadHeight.firstChild) {
+        tHeadHeight.removeChild(tHeadHeight.firstChild);
+    }
+    while (tBodyHeight.firstChild) {
+        tBodyHeight.removeChild(tBodyHeight.firstChild);
+    }
+    tHeadHeight.innerHTML = '<tr><td><b>' + '</b></td></tr>';
+    tBodyHeight.insertAdjacentHTML("beforeend", '<tr><td>' + pokeObj.height +  '</td></tr>');
+}
+
+function fillTableWeight(pokeObj) {
+    while (tHeadWeight.firstChild) {
+        tHeadWeight.removeChild(tHeadWeight.firstChild);
+    }
+    while (tBodyWeight.firstChild) {
+        tBodyWeight.removeChild(tBodyWeight.firstChild);
+    }
+    tHeadWeight.innerHTML = '<tr><td><b>' + '</b></td></tr>';
+    tBodyWeight.insertAdjacentHTML("beforeend", '<tr><td>' + pokeObj.weight + 'lbs' + '</td></tr>');
 }
 
 function capFirstName(x) {
